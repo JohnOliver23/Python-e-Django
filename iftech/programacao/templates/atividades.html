@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+      <!-- CSS  -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <title>Document</title>
+</head>
+<body>
+  <div class="container">
+        <h1 class="center-align blue-text text-darken-4">Crud in Python and Django</h1>
+    <table>
+        <thead>
+        <th>id</th>
+        <th>titulo</th>
+        <th>descricao</th>
+        <th>autor</th>
+        <th>horario</th>
+        <th>lab</th>
+        <th>editar</th>
+        <th>deletar</th>
+        </thead>
+        <tbody>
+    {%for atividade in atividades %}
+            <tr>
+        <td><a href="{% url 'atividade' atividade.id %}">{{atividade.id}}</a></td> 
+        <td>{{atividade.titulo}}</td> 
+        <td>{{atividade.descricao}}</td>
+        <td>{{atividade.autor}}</td>
+        <td>{{atividade.horario}}</td>
+        <td>{{atividade.lab}}</td>
+        <td><a href="{% url 'atividade_edit' atividade.id %}"><i class="small material-icons">edit</i></a></td>
+        <td><a href=""><i class="small material-icons">delete</i></a></td>
+            </tr>
+    {% endfor %}
+    </tbody>
+    </table>
+  </div>
+</body>
+</html>
